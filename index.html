@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Породи собак</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .controls label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .controls select,
+        .controls input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .controls input[type="text"] {
+            width: 250px;
+        }
+
+        .no-results {
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .cards {
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <div>
+            <label>🔍 Пошук</label>
+            <input type="text" id="search" placeholder="Назва або опис...">
+        </div>
+        <div>
+            <label>↕️ Сортування</label>
+            <select id="sort">
+                <option value="name">За назвою</option>
+                <option value="weight">За вагою</option>
+                <option value="height">За висотою</option>
+                <option value="life_span">За тривалістю життя</option>
+            </select>
+        </div>
+        <div>
+            <label>🐕 Група порід</label>
+            <select id="filter-group">
+                <option value="">Всі групи</option>
+                <option value="Herding">Herding</option>
+                <option value="Hound">Hound</option>
+                <option value="Mixed">Mixed</option>
+                <option value="Non-Sporting">Non-Sporting</option>
+                <option value="Sporting">Sporting</option>
+                <option value="Terrier">Terrier</option>
+                <option value="Toy">Toy</option>
+                <option value="Working">Working</option>
+            </select>
+        </div>
+        <div>
+            <label>⚖️ Макс. вага (кг)</label>
+            <input type="number" id="filter-weight" placeholder="Наприклад: 30" min="0">
+        </div>
+    </div>
+
+    <ul id="breeds" class="cards"></ul>
+
+    <script src="app.js"></script>
+</body>
+</html>
